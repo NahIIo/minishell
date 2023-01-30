@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:32:16 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 09:55:55 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:49:10 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	env_init(void)
 	int			i;
 
 	i = split_count(environ);
-	if (i == 0);
+	if (i == 0)
 		return (0);
 	g_env = malloc((i + 1) * sizeof(char *));
 	if (g_env == NULL)

@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:44:56 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 09:48:10 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:56:03 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ int	print_error(char *s1, char *s2, char *s3, char *message)
 	if (s2)
 	{
 		if (s1)
+		{
 			ft_putstr_fd(": ", 2);
+		}
 		ft_putstr_fd(s2, 2);
 	}
 	if (s3)
 	{
-		if(s1 || s2)
+		if (s1 || s2)
 			ft_putstr_fd(": ", 2);
 		ft_putstr_fd(message, 2);
 	}
@@ -32,7 +34,7 @@ int	print_error(char *s1, char *s2, char *s3, char *message)
 	return (ERROR);
 }
 
-int print_error_errno(char *s1, char *s2, char *s3)
+int	print_error_errno(char *s1, char *s2, char *s3)
 {
 	print_error(s1, s2, s3, strerror(errno));
 	errno = 0;
