@@ -1,7 +1,0 @@
-{
-	"files.associations": {
-		"env.h": "c",
-		"global.h": "c",
-		"glob.h": "c"
-	}
-}
