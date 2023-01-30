@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 08:09:21 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 10:48:48 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:30:54 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,10 @@ static void	process_input(char *input)
 	t_list	*l_token;
 	t_list	*l_parser;
 
-	/* DO SOMETHING */
+	l_token = NULL;
+	l_parser = NULL;
+	l_token = lexer(input); /* TODO */
+	if (l_token != NULL)
+		l_parser = parser(l_token); /* TODO */
+	/* EXEC LIST OF CMD?*/
 }
