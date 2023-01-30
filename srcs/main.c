@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 08:09:21 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 09:04:44 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:15:12 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@
 #include "global.h"
 #include "lexer.h"
 #include "parser.h"
+#include "env.h"
 
 static char	*get_input(void);
 static void	process_input(char *input);
+
+char	**g_env = NULL;
 
 int	main(void)
 {
 	char	*input;
 
-	if (env_init() == ERROR) // NOT IMPLEMENTED YET
+	if (env_init() == ERROR)
 		return (EXIT_FAILURE);
 	while (1)
 	{
@@ -38,7 +41,7 @@ int	main(void)
 		process_input(input);
 	}
 	rl_clear_history();
-	exit(exec_exit_status_get()); // NOT IMPLEMENTED YET;
+	exit(0/*WHATEVER THE LAST EXIT STATUS IS?/WAS?*/); // NOT IMPLEMENTED YET;
 }
 
 static char	*get_input(void)
@@ -46,13 +49,13 @@ static char	*get_input(void)
 	char	*input;
 	char	*prompt;
 
-	prompt = env_get_value("PS1"); // NOT IMPLEMENTED YET
+	prompt = env_get_value("PS1");
 	if (prompt == NULL)
 		prompt = PROMPT;
 	if (isatty(STDIN_FILENO))
 		input = readline(prompt);
 	else
-		input = minishell_get_next_line(STDIN_FILENO); // NOT IMPLEMENTED YET
+		input = minishell_get_next_line(STDIN_FILENO);
 	if (input == NULL)
 		return (NULL);
 	else if (isatty(STDIN_FILENO) && input && input[0])

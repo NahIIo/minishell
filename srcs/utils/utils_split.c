@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer.h                                            :+:      :+:    :+:   */
+/*   utils_split.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 09:09:56 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 10:24:07 by jchauvet         ###   ########.fr       */
+/*   Created: 2023/01/30 09:43:20 by jchauvet          #+#    #+#             */
+/*   Updated: 2023/01/30 09:43:29 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEXER_H
-# define LEXER_H
+#include "global.h"
 
-#endif
+int	split_count(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split && split[i])
+		i++;
+	return (i);
+}

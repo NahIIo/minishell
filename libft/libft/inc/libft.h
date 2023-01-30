@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hepple <hepple@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 10:54:31 by hepple            #+#    #+#             */
-/*   Updated: 2021/12/03 23:50:32 by hepple           ###   ########.fr       */
+/*   Updated: 2023/01/30 09:14:55 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <unistd.h>
 # include <limits.h>
 
-# include "get_next_line_bonus.h"
 # include "ft_printf.h"
 
 /* ******************* */

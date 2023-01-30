@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 08:23:12 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 09:05:02 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:15:48 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,14 @@
 
 # define PROMPT 	"$> "
 # define SHELL_NAME	"minishell"
+
+extern char	**g_env;
+
+int		print_error(char *s1, char *s2, char *s3, char *message);
+int		print_error_errno(char *s1, char *s2, char *s3);
+
+char	*minishell_get_next_line(int fd);
+
+int		split_count(char **argv);
 
 #endif
