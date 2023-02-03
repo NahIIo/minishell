@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 08:09:21 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 11:30:54 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:16:49 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "lexer.h"
 #include "parser.h"
 #include "env.h"
+#include "signals.h"
 
 static char	*get_input(void);
 static void	process_input(char *input);
@@ -29,10 +30,12 @@ int	main(void)
 {
 	char	*input;
 
+	signal(SIGQUIT, SIG_IGN);
 	if (env_init() == ERROR)
 		return (EXIT_FAILURE);
 	while (1)
 	{
+		signal(SIGINT, signal_ctlc);
 		input = get_input();
 		if (input == NULL)
 		{
