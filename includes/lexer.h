@@ -6,11 +6,15 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:09:56 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/01/30 10:48:36 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:37:11 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEXER_H
 # define LEXER_H
+
+# include "global.h"
+
+t_list	*lexer(char *input);
 
 #endif
