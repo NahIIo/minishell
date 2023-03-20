@@ -6,13 +6,14 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:44:17 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/02/24 09:53:57 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:14:04 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "env.h"
 #include "printer.h"
+#include "global.h"
 
 /* PARSER TAKES THE LEXED (TOKENIZED) INPUT AND CREATES A LIST OF COMMANDS*/
 /* BREAKING THEM DOWN IN SUBCOMMANDS (SCMDS) FOR EASE OF USE.*/
@@ -40,7 +41,7 @@ t_list	*parser(t_list *l_token)
 	if (env_var_is_value(DEBUG_ENV, "printer"))
 	{
 		printer_cmd(l_cmd);
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', 1);
 	}
 	return (l_cmd);
 }

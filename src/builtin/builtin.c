@@ -6,11 +6,12 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:03:15 by agiraud           #+#    #+#             */
-/*   Updated: 2023/03/03 14:42:26 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/20 08:56:44 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtin.h"
+#include "exec.h"
 
 int	builtin_check(char **cmd)
 {
@@ -35,7 +36,7 @@ int	builtin_exec(char **argv, t_list *l_free)
 {
 	int	status;
 
-	status = 0;
+	status = exec_exit_status_get();
 	if (argv[0] && (ft_strcmp(argv[0], "exit") == 0))
 		status = ft_exit(argv, status, l_free);
 	else if (argv[0] && (ft_strcmp(argv[0], "cd") == 0))

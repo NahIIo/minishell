@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:03:27 by agiraud           #+#    #+#             */
-/*   Updated: 2023/03/03 10:15:51 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:08:04 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	ft_is_num(char *num)
 	return (1);
 }
 
-int	check_argv_exit(char **argv, t_list *l_free)
+int	check_argv_exit(char **argv, t_list *l_free, int status)
 {
 	if (argv[0] && !argv[1])
 	{
 		exec_free_all(argv, l_free);
-		exit(0);
+		exit(status);
 	}
 	if (!ft_is_num(argv[1]) || argv[1][0] == '\0')
 	{
@@ -63,7 +63,7 @@ int	ft_exit(char **argv, int status, t_list *l_free)
 {
 	if (isatty(STDERR_FILENO))
 		ft_putstr_fd("exit\n", STDERR_FILENO);
-	if (check_argv_exit(argv, l_free))
+	if (check_argv_exit(argv, l_free, status))
 		return (1);
 	status = ft_atoi(argv[1]);
 	exec_free_all(argv, l_free);

@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:44:54 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/02/24 09:54:53 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:28:37 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 #include <unistd.h>
 
 #include "signals.h"
+#include "exec.h"
+#include "global.h"
 
 void	signal_ctlc(int sig)
 {
 	if (sig == SIGINT)
 	{
-		write(STDERR_FILENO, "\n", 1);
+		ft_putchar_fd('\n', STDERR_FILENO);
 		rl_replace_line("", 0);
 		rl_on_new_line();
 		rl_redisplay();
+		exec_exit_status_set(130);
 	}
 }
 
@@ -34,7 +37,7 @@ void	signal_ctlc_heredoc(int sig)
 	if (sig == SIGINT)
 	{
 		close(STDIN_FILENO);
-		write(STDERR_FILENO, "\n", 1);
+		ft_putchar_fd('\n', STDERR_FILENO);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:50:02 by agiraud           #+#    #+#             */
-/*   Updated: 2023/03/03 10:05:23 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/16 12:41:40 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ char	*ft_export_value(char *str)
 
 int	ft_export(char **argv)
 {
-	int	i;
+	int		i;
+	char	*ex_name;
+	char	*ex_val;
 
 	i = 1;
 	if (!argv[i])
@@ -55,7 +57,11 @@ int	ft_export(char **argv)
 				"not a valid identifier");
 			return (1);
 		}
-		env_set_env(ft_export_name(argv[i]), ft_export_value(argv[i]));
+		ex_name = ft_export_name(argv[i]);
+		ex_val = ft_export_value(argv[i]);
+		env_set_env(ex_name, ex_val);
+		free(ex_name);
+		free(ex_val);
 		i++;
 	}
 	return (0);

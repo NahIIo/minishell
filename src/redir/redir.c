@@ -6,13 +6,14 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 09:38:02 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/02/24 09:38:03 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:18:48 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 
 #include "redir.h"
+#include "global.h"
 
 static int	redir_process(char *redir, char *file, t_list **l_undo);
 static int	redir_fd(char *redir, int type);
@@ -131,7 +132,7 @@ static int	redir_open_file(char *file, int type)
 			fd[0] = -1;
 		else
 		{
-			write(fd[1], file, ft_strlen(file));
+			ft_putstr_fd(file, fd[1]);
 			close(fd[1]);
 		}
 	}

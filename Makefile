@@ -6,7 +6,7 @@
 #    By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 22:03:08 by jchauvet          #+#    #+#              #
-#    Updated: 2023/03/10 10:28:36 by jchauvet         ###   ########.fr        #
+#    Updated: 2023/03/20 10:19:25 by jchauvet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,9 +64,7 @@ OBJS        := $(SRCS:%.c=$(ODIR)/%.o)
 DDIR        := $(ODIR)/.deps
 DEPS        := $(SRCS:%.c=$(DDIR)/%.d)
 
-ifeq ($(shell uname -s), Linux)
-	CFLAGS += -D LINUX -Wno-unused-result
-endif
+
 
 .PHONY: all clean fclean re test
 
