@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:44:34 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/02/24 09:54:17 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:16:09 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	printer_token(t_list *l_token)
 		while (l_token->next != NULL)
 		{
 			if (token_content(l_token)->flags & TOK_CONNECTED)
-				printf("%s \033[0;35m+ \033[m", token_content(l_token)->str);
+				printf("%d \033[0;35m+ \033[m", token_content(l_token)->flags);
 			else
-				printf("%s \033[0;32m: \033[m", token_content(l_token)->str);
+				printf("%d \033[0;32m: \033[m", token_content(l_token)->flags);
 			l_token = l_token->next;
 		}
-		printf("%s\n", token_content(l_token)->str);
+		printf("%d\n", token_content(l_token)->flags);
 	}
 }
