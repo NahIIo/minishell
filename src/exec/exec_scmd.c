@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 09:41:55 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/03/22 14:59:07 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:11:14 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	exec_scmd_exec(char **argv)
 	}
 	execve(argv[0], argv, g_env);
 	if (errno == ENOENT)
-		status = ENOENT;
+		status = EXEC_NOTFOUND;
 	else
 		status = EXEC_NOEXEC;
 	print_error_errno(SHELL_NAME, argv[0], NULL);
